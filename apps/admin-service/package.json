@@ -1,0 +1,29 @@
+{
+  "name": "@myapp/admin-service",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "targets": {
+      "serve": {
+        "continuous": true,
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@myapp/admin-service:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@myapp/admin-service:build:development"
+          },
+          "production": {
+            "buildTarget": "@myapp/admin-service:build:production"
+          }
+        }
+      }
+    }
+  }
+}

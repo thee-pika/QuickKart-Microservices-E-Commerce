@@ -1,0 +1,29 @@
+{
+  "name": "@myapp/api-gateway",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "targets": {
+      "serve": {
+        "continuous": true,
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@myapp/api-gateway:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@myapp/api-gateway:build:development"
+          },
+          "production": {
+            "buildTarget": "@myapp/api-gateway:build:production"
+          }
+        }
+      }
+    }
+  }
+}

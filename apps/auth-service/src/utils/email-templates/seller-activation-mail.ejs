@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Shop Activation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f7;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      .container {
+        max-width: 600px;
+        margin: 30px auto;
+        background: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        background-color: #4caf50;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .content {
+        padding: 20px;
+      }
+      .content p {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .otp {
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 4px;
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        border-radius: 6px;
+      }
+      .footer {
+        text-align: center;
+        padding: 15px;
+        font-size: 12px;
+        color: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">Seller Activation Mail</div>
+      <div class="content">
+        <p>Hi <%= name %>,</p>
+        <p>
+          To activate your shop registration, please use the following One-Time
+          Password (OTP):
+        </p>
+        <div class="otp"><%= otp %></div>
+        <p>
+          This OTP will expire in <strong>5 minutes</strong>. Do not share it
+          with anyone for security reasons.
+        </p>
+        <p>Once verified, your shop will be successfully activated.</p>
+      </div>
+      <div class="footer">
+        &copy; <%= new Date().getFullYear() %> Shop Registration Portal
+      </div>
+    </div>
+  </body>
+</html>

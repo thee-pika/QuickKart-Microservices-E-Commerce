@@ -1,0 +1,29 @@
+{
+  "name": "@myapp/order-service",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "targets": {
+      "serve": {
+        "continuous": true,
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@myapp/order-service:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@myapp/order-service:build:development"
+          },
+          "production": {
+            "buildTarget": "@myapp/order-service:build:production"
+          }
+        }
+      }
+    }
+  }
+}
