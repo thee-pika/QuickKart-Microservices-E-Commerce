@@ -28,7 +28,7 @@ const userRegistration = async (
   try {
     validateRegistrationData(req.body, 'user');
 
-    const { name, email, password } = req.body;
+    const { name, email } = req.body;
     const existingUser = await prisma.user.findUnique({ where: { email } });
 
     if (existingUser) {
@@ -64,7 +64,7 @@ const verifyUser = async (req: Request, res: Response, next: NextFunction) => {
     await verifyOtp(email, otp);
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await prisma.user.create({
+    await prisma.user.create({
       data: {
         email,
         password: hashedPassword,
@@ -514,7 +514,6 @@ const getLoggedInSeller = async (
 
 const getLoggedInUser = async (req: any, res: Response, next: NextFunction) => {
   try {
-
     const user = await prisma.user.findUnique({
       where: {
         id: req.id,
